@@ -1,13 +1,13 @@
 ---
 nocite: |
- @jdhaoConvertingMarkdownBeautiful2019, @CustomizingPandocGenerate2020, @tozierPandocLaTeXWorkflow2016, @yaoBoilerplatingPandocAcademic2016, @mortenstarckLeftjustifyTextLaTeX2012, @strawbridgeCreatingPDFsJustified, @hgvFirstParagraphIndentation2014, @rodeoFirstlineParagraphIndenting2015, @kohmKOMAScriptGuide2023, @butterickButterickPracticalTypography2023
+ @jdhaoConvertingMarkdownBeautiful2019, @CustomizingPandocGenerate2020, @tozierPandocLaTeXWorkflow2016, @yaoBoilerplatingPandocAcademic2016, @mortenstarckLeftjustifyTextLaTeX2012, @strawbridgeCreatingPDFsJustified2014, @hgvFirstParagraphIndentation2014, @rodeoFirstlineParagraphIndenting2015, @kohmKOMAScriptGuide2023, @butterickButterickPracticalTypography2023
 ---
 
 # Defaults
 
 Default command:
 ```terminal
-pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/Zotero.bib -V papersize:letter
+pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zotero.bib -V papersize:letter
 ```
 
 Default metadata:
@@ -93,7 +93,7 @@ linestretch: 1.1
 
 
 ```terminal
--H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/H1PageBreak.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/H1PageBreak.tex
 ```
 
 Contents:
@@ -108,7 +108,7 @@ Contents:
 Indentation only needed if double spacing or if no space added between paragraphs.
 
 ```terminal
--H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/IndentParagraph.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/IndentParagraph.tex
 ```
 
 Contents:
@@ -131,7 +131,7 @@ Contents:
 Complete command:
 
 ```terminal
-pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex -H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
+pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
 ```
 
 ### Margins
@@ -159,7 +159,7 @@ linestretch: 2
 > Use with intention. TeX is known for its good hyphenation algorithm.
 
 ```terminal
--H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex
 ```
 
 Contents:
@@ -174,7 +174,7 @@ Contents:
 > Use with intention. TeX is known for its beautiful text justification algorithms.
 
 ```terminal
--H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/LeftAlign.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlign.tex
 ```
 
 Contents:
@@ -184,7 +184,7 @@ Contents:
 
 #### Left-align AND indent paragraphs
 ```terminal
--H /Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
 ```
 
 Contents:
@@ -202,7 +202,7 @@ Contents:
 
 Citation process:
 ```terminal
--C --bibliography=/Users/Parker/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Zettelkasten/Zotero.bib
+-C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib
 ```
 ```yaml
 bibliography: filepath.bib
