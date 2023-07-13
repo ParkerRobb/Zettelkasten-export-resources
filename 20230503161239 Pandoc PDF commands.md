@@ -1,6 +1,6 @@
 ---
 nocite: |
- @jdhaoConvertingMarkdownBeautiful2019, @CustomizingPandocGenerate2020, @tozierPandocLaTeXWorkflow2016, @yaoBoilerplatingPandocAcademic2016, @mortenstarckLeftjustifyTextLaTeX2012, @strawbridgeCreatingPDFsJustified2014, @hgvFirstParagraphIndentation2014, @rodeoFirstlineParagraphIndenting2015, @kohmKOMAScriptGuide2023, @butterickButterickPracticalTypography2023
+ @jdhaoConvertingMarkdownBeautiful2019, @CustomizingPandocGenerate2020, @tozierPandocLaTeXWorkflow2016, @yaoBoilerplatingPandocAcademic2016, @mortenstarckLeftjustifyTextLaTeX2012, @strawbridgeCreatingPDFsJustified2014, @hgvFirstParagraphIndentation2014, @rodeoFirstlineParagraphIndenting2015, @kohmKOMAScriptGuide2023, @butterickButterickPracticalTypography2023, @macfarlanePandocUserGuide2023
 ---
 
 # Defaults
@@ -14,11 +14,29 @@ Default metadata:
 ```
 documentclass: scrartcl
 nocite: |
- 
+ @citekey
 ```
 
 
-# Formatting
+# Markdown extensions
+
+
+> [!NOTE]
+> These extensions were added in Pandoc v3.0.0
+
+
+Command:
+```terminal
+--from=markdown+ext1+ext2+ext3
+```
+
+Wikilinks: `wikilinks_title_after_pipe`
+
+Highlights: `mark`
+
+
+
+# Output formatting
 
 ## Document class
 
@@ -66,7 +84,6 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 ```terminal
 --template=filepath.tex
 ```
-
 
 ## Fonts
 
