@@ -106,7 +106,7 @@ linestretch: 1.1
 > This is only needed for standard document classes, as certain KOMA-script classes include heading page breaks in their templates.
 
 > [!WARNING] Warning
-> The titlesec package does not work with KOMA-script classes
+> The `titlesec` package does not work with KOMA-script classes
 
 
 ```terminal
@@ -153,7 +153,7 @@ pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Park
 
 ### Margins
 
-> [!Warning]
+> [!Note]
 > Using the `geometry` package overrides the typographic calculations described in [[20230503161239 Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
 
 ```terminal
@@ -173,7 +173,7 @@ linestretch: 2
 ### Disable hyphenation
 
 > [!Note]
-> Use with intention. TeX is known for its good hyphenation algorithm.
+> Use with intention. TeX is known for its unsurpassed hyphenation algorithm.
 
 ```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
@@ -184,11 +184,14 @@ Contents:
 \exhyphenpenalty=10000 \hyphenpenalty=10000
 ```
 
+This works by increasing the penalty for adding a hyphen to a ridiculously high number within the hyphenation algorithm.
 
 ### Left-align text
 
 > [!Note]
 > Use with intention. TeX is known for its beautiful text justification algorithms.
+
+The `ragged2e` package “re-enables” hyphenation in aligned/centered text which keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
 
 ```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
