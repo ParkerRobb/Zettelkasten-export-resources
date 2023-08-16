@@ -110,7 +110,7 @@ linestretch: 1.1
 
 
 ```terminal
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/H1PageBreak.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```
 
 Contents:
@@ -125,7 +125,7 @@ Contents:
 Indentation only needed if double spacing or if no space added between paragraphs.
 
 ```terminal
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/IndentParagraph.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
 ```
 
 Contents:
@@ -148,7 +148,7 @@ Contents:
 Complete command:
 
 ```terminal
-pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
+pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
 
 ### Margins
@@ -176,7 +176,7 @@ linestretch: 2
 > Use with intention. TeX is known for its good hyphenation algorithm.
 
 ```terminal
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/DisableHyphenation.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```
 
 Contents:
@@ -191,7 +191,7 @@ Contents:
 > Use with intention. TeX is known for its beautiful text justification algorithms.
 
 ```terminal
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlign.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```
 
 Contents:
@@ -201,7 +201,7 @@ Contents:
 
 #### Left-align AND indent paragraphs
 ```terminal
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LeftAlignAndIndent.tex
+-H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
 
 Contents:
