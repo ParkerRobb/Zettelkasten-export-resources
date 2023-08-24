@@ -6,12 +6,12 @@ nocite: |
 # Defaults
 
 Default command:
-```terminal
 pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zotero.bib -V papersize:letter
+```sh
 ```
 
 Default metadata:
-```
+```yaml
 documentclass: scrartcl
 nocite: |
  @citekey
@@ -26,7 +26,7 @@ nocite: |
 
 
 Command:
-```terminal
+```sh
 --from=markdown+ext1+ext2+ext3
 ```
 
@@ -40,7 +40,7 @@ Highlights: `mark`
 
 ## Document class
 
-```terminal
+```sh
 -V documentclass:scrartcl
 ```
 ```yaml
@@ -81,8 +81,8 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 
 ### Custom LaTeX template
 
-```terminal
 --template=filepath.tex
+```sh
 ```
 
 ## Fonts
@@ -90,7 +90,7 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 The default LaTeX font is Computer Modern. KOMA-script document classes use the sans-serif typeface for headings.
 
 Georgia preferred settings:
-```terminal
+```sh
 -V mainfont:"Georgia" -V linestretch:1.15
 ```
 ```yaml
@@ -109,8 +109,8 @@ linestretch: 1.1
 > The `titlesec` package does not work with KOMA-script classes
 
 
-```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
+```sh
 ```
 
 Contents:
@@ -124,8 +124,8 @@ Contents:
 
 Indentation only needed if double spacing or if no space added between paragraphs.
 
-```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
+```sh
 ```
 
 Contents:
@@ -147,8 +147,8 @@ Contents:
 
 Complete command:
 
-```terminal
 pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
+```sh
 ```
 
 ### Margins
@@ -156,13 +156,13 @@ pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Park
 > [!Note]
 > Using the `geometry` package overrides the typographic calculations described in [[20230503161239 Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
 
-```terminal
+```sh
 -V geometry:margin=1in
 ```
 
 
 ### Line spacing
-```terminal
+```sh
 -V linestretch:2
 ```
 ```yaml
@@ -175,8 +175,8 @@ linestretch: 2
 > [!Note]
 > Use with intention. TeX is known for its unsurpassed hyphenation algorithm.
 
-```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
+```sh
 ```
 
 Contents:
@@ -193,8 +193,8 @@ This works by increasing the penalty for adding a hyphen to a ridiculously high 
 
 The `ragged2e` package “re-enables” hyphenation in aligned/centered text which keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
 
-```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
+```sh
 ```
 
 Contents:
@@ -203,8 +203,8 @@ Contents:
 ```
 
 #### Left-align AND indent paragraphs
-```terminal
 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
+```sh
 ```
 
 Contents:
@@ -221,8 +221,8 @@ Contents:
 # Citations
 
 Citation process:
-```terminal
 -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib
+```sh
 ```
 ```yaml
 bibliography: filepath.bib
@@ -233,20 +233,20 @@ bibliography: filepath.bib
 Default is Chicago author-date
 
 Chicago notes-bibliography:
-```terminal
 --csl=/Users/Parker/Zotero/styles/chicago-note-bibliography.csl
 --csl=/Users/Parker/Zotero/styles/chicago-fullnote-bibliography.csl
+```sh
 ```
 
 
 MLA:
-```terminal
 --csl=/Users/Parker/Zotero/styles/modern-language-association.csl
+```sh
 ```
 
 APA:
-```terminal
 --csl=Users/Parker/Zotero/styles/apa.csl
+```sh
 ```
 
 Using YAML:
