@@ -3,11 +3,14 @@ nocite: |
  @jdhaoConvertingMarkdownBeautiful2019, @CustomizingPandocGenerate2020, @tozierPandocLaTeXWorkflow2016, @yaoBoilerplatingPandocAcademic2016, @mortenstarckLeftjustifyTextLaTeX2012, @strawbridgeCreatingPDFsJustified2014, @hgvFirstParagraphIndentation2014, @rodeoFirstlineParagraphIndenting2015, @kohmKOMAScriptGuide2023, @butterickButterickPracticalTypography2023, @macfarlanePandocUserGuide2023
 ---
 
+> [!NOTE] Note
+> All commands assume this Zettelkasten-export-resources repository has been cloned to `~/Zettelkasten/4\ Export\ Resources/`, the Zotero data directory is located at `~/Zotero/`, and the Zotero database is exported to `~/Zotero.bib`.
+
 # Defaults
 
 Default command:
-pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zotero.bib -V papersize:letter
 ```sh
+pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zotero.bib -V papersize:letter
 ```
 
 Default metadata:
@@ -81,8 +84,8 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 
 ### Custom LaTeX template
 
---template=filepath.tex
 ```sh
+--template=<filepath>.tex
 ```
 
 ## Fonts
@@ -109,8 +112,8 @@ linestretch: 1.1
 > The `titlesec` package does not work with KOMA-script classes
 
 
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```
 
 Contents:
@@ -124,8 +127,8 @@ Contents:
 
 Indentation only needed if double spacing or if no space added between paragraphs.
 
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
 ```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
 ```
 
 Contents:
@@ -147,8 +150,8 @@ Contents:
 
 Complete command:
 
-pandoc INPUT.md -o OUTPUT.pdf --pdf-engine=xelatex -C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib --csl=/Users/Parker/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```sh
+pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zettelkasten/Zotero.bib --csl=~/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
 
 ### Margins
@@ -175,8 +178,8 @@ linestretch: 2
 > [!Note]
 > Use with intention. TeX is known for its unsurpassed hyphenation algorithm.
 
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```
 
 Contents:
@@ -193,8 +196,8 @@ This works by increasing the penalty for adding a hyphen to a ridiculously high 
 
 The `ragged2e` package “re-enables” hyphenation in aligned/centered text which keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
 
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```
 
 Contents:
@@ -203,8 +206,8 @@ Contents:
 ```
 
 #### Left-align AND indent paragraphs
--H /Users/Parker/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
 
 Contents:
@@ -221,11 +224,11 @@ Contents:
 # Citations
 
 Citation process:
--C --bibliography=/Users/Parker/Zettelkasten/Zotero.bib
 ```sh
+-C --bibliography=~/Zotero.bib
 ```
 ```yaml
-bibliography: filepath.bib
+bibliography: ~/Zotero.bib
 ```
 
 ## Citation style
@@ -233,25 +236,25 @@ bibliography: filepath.bib
 Default is Chicago author-date
 
 Chicago notes-bibliography:
---csl=/Users/Parker/Zotero/styles/chicago-note-bibliography.csl
---csl=/Users/Parker/Zotero/styles/chicago-fullnote-bibliography.csl
 ```sh
+--csl=~/Zotero/styles/chicago-note-bibliography.csl
+--csl=~/Zotero/styles/chicago-fullnote-bibliography.csl
 ```
 
 
 MLA:
---csl=/Users/Parker/Zotero/styles/modern-language-association.csl
 ```sh
+--csl=~/Zotero/styles/modern-language-association.csl
 ```
 
 APA:
---csl=Users/Parker/Zotero/styles/apa.csl
 ```sh
+--csl=~/Zotero/styles/apa.csl
 ```
 
 Using YAML:
 ```yaml
-csl: filepath.csl
+csl: <filepath>.csl
 ```
 
 Filepath can also be a URL.
