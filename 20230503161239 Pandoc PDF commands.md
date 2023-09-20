@@ -23,19 +23,23 @@ nocite: |
 
 # Markdown extensions
 
-
 > [!NOTE]
 > These extensions were added in Pandoc v3.0.0
 
 
-Command:
+Option to make Pandoc interpret Obsidian Flavored Markdown correctly:
 ```sh
---from=markdown+ext1+ext2+ext3
+--from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline
 ```
 
-Wikilinks: `wikilinks_title_after_pipe`
+Generic option:
+```sh
+--from=markdown+<ext1>+<ext2>+...
+```
 
-Highlights: `mark`
+- Wikilinks: `wikilinks_title_after_pipe`
+- Highlights: `mark`
+- Lists without preceding blank line: `lists_without_preceding_blankline`
 
 
 
@@ -43,9 +47,11 @@ Highlights: `mark`
 
 ## Document class
 
+Option:
 ```sh
 -V documentclass:scrartcl
 ```
+Metadata:
 ```yaml
 documentclass: scrartcl
 ```
@@ -84,6 +90,7 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 
 ### Custom LaTeX template
 
+Option:
 ```sh
 --template=<filepath>.tex
 ```
@@ -92,10 +99,13 @@ The most legible font size is 10-11pt. Both standard and KOMA-script classes opt
 
 The default LaTeX font is Computer Modern. KOMA-script document classes use the sans-serif typeface for headings.
 
-Georgia preferred settings:
+Preferred settings for Georgia:
+
+Option:
 ```sh
 -V mainfont:"Georgia" -V linestretch:1.15
 ```
+Metadata:
 ```yaml
 mainfont: "Georgia"
 linestretch: 1.1
@@ -111,7 +121,7 @@ linestretch: 1.1
 > [!WARNING] Warning
 > The `titlesec` package does not work with KOMA-script classes
 
-
+Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```
@@ -127,6 +137,7 @@ Contents:
 
 Indentation only needed if double spacing or if no space added between paragraphs.
 
+Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
 ```
@@ -149,7 +160,6 @@ Contents:
 ## MLA style
 
 Complete command:
-
 ```sh
 pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zettelkasten/Zotero.bib --csl=~/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
@@ -159,15 +169,19 @@ pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zette
 > [!Note]
 > Using the `geometry` package overrides the typographic calculations described in [[20230503161239 Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
 
+Option:
 ```sh
 -V geometry:margin=1in
 ```
 
 
 ### Line spacing
+
+Option:
 ```sh
 -V linestretch:2
 ```
+Metadata:
 ```yaml
 linestretch: 2
 ```
@@ -178,6 +192,7 @@ linestretch: 2
 > [!Note]
 > Use with intention. TeX is known for its unsurpassed hyphenation algorithm.
 
+Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```
@@ -196,6 +211,7 @@ This works by increasing the penalty for adding a hyphen to a ridiculously high 
 
 The `ragged2e` package “re-enables” hyphenation in aligned/centered text which keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
 
+Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```
@@ -206,6 +222,8 @@ Contents:
 ```
 
 #### Left-align AND indent paragraphs
+
+Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
@@ -223,41 +241,42 @@ Contents:
 
 # Citations
 
-Citation process:
+Option:
 ```sh
--C --bibliography=~/Zotero.bib
+-C
 ```
+
+## Bibliography
+
+Option:
+```sh
+ --bibliography=~/Zotero.bib
+```
+Metadata:
 ```yaml
 bibliography: ~/Zotero.bib
 ```
 
 ## Citation style
 
-Default is Chicago author-date
-
-Chicago notes-bibliography:
+Option:
 ```sh
---csl=~/Zotero/styles/chicago-note-bibliography.csl
---csl=~/Zotero/styles/chicago-fullnote-bibliography.csl
+--csl=<filepath>.csl
 ```
-
-
-MLA:
-```sh
---csl=~/Zotero/styles/modern-language-association.csl
-```
-
-APA:
-```sh
---csl=~/Zotero/styles/apa.csl
-```
-
-Using YAML:
+Metadata:
 ```yaml
 csl: <filepath>.csl
 ```
 
 Filepath can also be a URL.
+
+Default is Chicago author-date
+- Chicago notes-bibliography:
+	- `~/Zotero/styles/chicago-note-bibliography.csl`
+	- `~/Zotero/styles/chicago-fullnote-bibliography.csl`
+- MLA: `~/Zotero/styles/modern-language-association.csl`
+- APA: `~/Zotero/styles/apa.csl`
+
 
 # Additional variables
 
