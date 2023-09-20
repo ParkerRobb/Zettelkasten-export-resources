@@ -37,7 +37,7 @@ Option to make Pandoc interpret Obsidian Flavored Markdown correctly:
 
 Obsidian Flavored Markdown mostly consists of GitHub Flavored Markdown (GFM), which itself is an extension of CommonMark.
 `markdown` refers to Pandoc’s implementation of Markdown.
-See [[20230918164026 Markdown extension comparison]] for a full analysis of where Obsidian Flavored Markdown and Pandoc Markdown overlap and diverge.
+See [[Markdown extension comparison]] for a full analysis of where Obsidian Flavored Markdown and Pandoc Markdown overlap and diverge.
 
 Generic option:
 ```sh
@@ -160,7 +160,7 @@ Contents:
 ```
 
 > [!WARNING]
-> Neither of these options is compatible with [[20230503161239 Pandoc PDF commands#Left-align text:|ragged2e]]
+> Neither of these options is compatible with [[Pandoc PDF commands#Left-align text:|ragged2e]]
 
 
 
@@ -174,7 +174,7 @@ pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zette
 ### Margins
 
 > [!Note]
-> Using the `geometry` package overrides the typographic calculations described in [[20230503161239 Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
+> Using the `geometry` package overrides the typographic calculations described in [[Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
 
 Option:
 ```sh
