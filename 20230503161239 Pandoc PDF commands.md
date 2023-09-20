@@ -10,14 +10,17 @@ nocite: |
 
 Default command:
 ```sh
-pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zotero.bib -V papersize:letter
+pandoc <input>.md -o <output>.pdf --from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --pdf-engine=xelatex -C --bibliography=~/Zotero.bib -V papersize:letter
 ```
+
+The options can be copied to “Extra Pandoc arguments” in the settings of the [Obsidian Pandoc](https://github.com/OliverBalfour/obsidian-pandoc) plugin.
 
 Default metadata:
 ```yaml
 documentclass: scrartcl
 nocite: |
  @citekey
+reference-section-title: Bibliography
 ```
 
 
@@ -31,6 +34,10 @@ Option to make Pandoc interpret Obsidian Flavored Markdown correctly:
 ```sh
 --from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline
 ```
+
+Obsidian Flavored Markdown mostly consists of GitHub Flavored Markdown (GFM), which itself is an extension of CommonMark.
+`markdown` refers to Pandoc’s implementation of Markdown.
+See [[20230918164026 Markdown extension comparison]] for a full analysis of where Obsidian Flavored Markdown and Pandoc Markdown overlap and diverge.
 
 Generic option:
 ```sh
