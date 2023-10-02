@@ -133,36 +133,18 @@ Option:
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```
 
-Contents:
-```latex
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
-```
+## Indentation
 
-
-## Paragraph indentation
 
 Indentation only needed if double spacing or if no space added between paragraphs.
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-paragraph.tex
-```
-
-Contents:
-```latex
-% Pick one of the options:
-
-\usepackage{indentfirst}
-
-% \setlength{\parindent}{4em}
-% \setlength{\parskip}{0em}
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent.tex
 ```
 
 > [!WARNING]
-> Neither of these options is compatible with [[Pandoc PDF commands#Left-align text:|ragged2e]]
-
-
+> Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]]. See [[Pandoc PDF commands#Left-align + indent paragraphs|Left-align + indent]] if left-alignment is also desired.
 
 ## MLA style
 
@@ -181,7 +163,6 @@ Option:
 -V geometry:margin=1in
 ```
 
-
 ### Line spacing
 
 Option:
@@ -193,7 +174,6 @@ Metadata:
 linestretch: 2
 ```
 
-
 ### Disable hyphenation
 
 > [!Note]
@@ -204,47 +184,27 @@ Option:
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```
 
-Contents:
-```latex
-\exhyphenpenalty=10000 \hyphenpenalty=10000
-```
-
-This works by increasing the penalty for adding a hyphen to a ridiculously high number within the hyphenation algorithm.
-
 ### Left-align text
 
 > [!Note]
 > Use with intention. TeX is known for its beautiful text justification algorithms.
 
-The `ragged2e` package “re-enables” hyphenation in aligned/centered text which keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
+The `ragged2e` package “re-enables” hyphenation in aligned/centered text and keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
+
+`ragged2e` adds its own skip and indentation parameters.
+If the package is used, LaTeX code that changes the default skip and indentation parameters must be adjusted to use `ragged2e`‘s parameters to have any effect (which is the reason for several “Left-align + …” sections in this document).
 
 Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```
 
-Contents:
-```latex
-\usepackage[document]{ragged2e}
-```
-
-#### Left-align AND indent paragraphs
+#### Left-align + indent paragraphs
 
 Option:
 ```sh
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
 ```
-
-Contents:
-```latex
-\usepackage[document]{ragged2e}
-
-\setlength{\RaggedRightParindent}{4em}
-
-\setlength{\parskip}{0em}
-```
-
-
 
 # Citations
 

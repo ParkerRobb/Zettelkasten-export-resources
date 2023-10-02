@@ -1,2 +1,4 @@
-\usepackage{titlesec}
-\newcommand{\sectionbreak}{\clearpage}
+% Note that this does not work for KOMA-script document classes, nor is it needed as H1 page breaks are included in some classes.
+
+\usepackage{titlesec}						% Package for modifying H1 sections
+	\newcommand{\sectionbreak}{\clearpage}	% Inserts page break between H1 sections
