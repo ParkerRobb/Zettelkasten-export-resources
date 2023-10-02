@@ -140,6 +140,7 @@ Option:
 
 ## Indentation
 
+### First line
 
 Indentation only needed if double spacing or if no space added between paragraphs.
 
@@ -151,6 +152,32 @@ Option:
 > [!WARNING]
 > Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]].
 > See [[Pandoc PDF commands#Left-align + indent paragraphs|Left-align + indent]] if left-alignment is also desired.
+
+### Hanging
+
+Option:
+```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/hanging-indent.tex
+```
+
+> [!Warning]
+> This adds extra indentation to any [[Pandoc PDF commands#Citations|generated reference section]].
+> To reset the reference section indentation, `\setlength{\leftskip}{0em}` must be added to the end of the document.
+
+^ef6732
+
+> [!WARNING]
+> Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]].
+> See [[Pandoc PDF commands#Hanging + Left-aligned|Hanging + left-aligned]] if left-alignment is also desired.
+
+#### Hanging + Left-aligned
+
+Option:
+```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+hanging-indent.tex
+```
+
+![[Pandoc PDF commands#^ef6732]]
 
 ## MLA style
 
