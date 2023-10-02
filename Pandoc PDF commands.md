@@ -86,7 +86,11 @@ Global differences between the KOMA-script classes and the standard classes incl
 
 [^1]: This is desired. On portrait-oriented pages, if the margins are equal on all sides, the text area becomes increasingly elongated with larger margins, and its thinness emphasizes the size of the side margins. This visual disproportion is solved by placing additional margin at the bottom. This practice was followed by medieval book designers.
 
-The most legible font size is 10-11pt. Both standard and KOMA-script classes optimize typography for ~80 characters per line and calculate the margins from the `fontsize`; if different margins are desired, they should be adjusted by changing the `fontsize`. The table below gives the margins resulting from a given `fontsize` for KOMA-script classes on letter-size paper. The margins that result from 11pt font work better with A4 paper because A4 is the default `papersize`.
+The most legible font size is 10-11pt.
+Both standard and KOMA-script classes optimize typography for ~80 characters per line and calculate the margins from the `fontsize`;
+if different margins are desired, they should be adjusted by changing the `fontsize`.
+The table below gives the margins resulting from a given `fontsize` for KOMA-script classes on letter-size paper.
+The margins that result from 11pt font work better with A4 paper because A4 is the default `papersize`.
 
 | `fontsize`     | Side margins |
 | -------------- | ------- |
@@ -104,7 +108,8 @@ Option:
 
 ## Fonts
 
-The default LaTeX font is Computer Modern. KOMA-script document classes use the sans-serif typeface for headings.
+The default LaTeX font is Computer Modern.
+KOMA-script document classes use the sans-serif typeface for headings.
 
 Preferred settings for Georgia:
 
@@ -144,7 +149,8 @@ Option:
 ```
 
 > [!WARNING]
-> Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]]. See [[Pandoc PDF commands#Left-align + indent paragraphs|Left-align + indent]] if left-alignment is also desired.
+> Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]].
+> See [[Pandoc PDF commands#Left-align + indent paragraphs|Left-align + indent]] if left-alignment is also desired.
 
 ## MLA style
 
@@ -156,7 +162,8 @@ pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zette
 ### Margins
 
 > [!Note]
-> Using the `geometry` package overrides the typographic calculations described in [[Pandoc PDF commands#Document class|Document class]]. Only use it as a nuclear option.
+> Using the `geometry` package overrides the typographic calculations described in [[Pandoc PDF commands#Document class|Document class]].
+> Only use it as a nuclear option.
 
 Option:
 ```sh
@@ -177,7 +184,8 @@ linestretch: 2
 ### Disable hyphenation
 
 > [!Note]
-> Use with intention. TeX is known for its unsurpassed hyphenation algorithm.
+> Use with intention.
+> TeX is known for its unsurpassed hyphenation algorithm.
 
 Option:
 ```sh
@@ -187,7 +195,8 @@ Option:
 ### Left-align text
 
 > [!Note]
-> Use with intention. TeX is known for its beautiful text justification algorithms.
+> Use with intention.
+> TeX is known for its beautiful text justification algorithms.
 
 The `ragged2e` package “re-enables” hyphenation in aligned/centered text and keeps the text from looking ridiculously ragged, unlike the default LaTeX commands and environments.
 
