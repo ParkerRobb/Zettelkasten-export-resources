@@ -179,6 +179,19 @@ Option:
 
 ![[Pandoc PDF commands#^ef6732]]
 
+### First paragraph of section
+
+> [!Note]
+> Use with intention.
+> Typographically, indentation of the first paragraph of a section is unnecessary.
+
+By default, LaTeX does not apply indentation rules to the first paragraph of a section (i.e. following a section heading).
+
+Option:
+```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-first-paragraph.tex
+```
+
 ## MLA style
 
 Complete command:
