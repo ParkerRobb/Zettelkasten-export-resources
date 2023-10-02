@@ -153,6 +153,13 @@ Option:
 > Has no effect when combined with [[Pandoc PDF commands#Left-align text:|ragged2e]].
 > See [[Pandoc PDF commands#Left-align + indent paragraphs|Left-align + indent]] if left-alignment is also desired.
 
+#### First line + Left-aligned
+
+Option:
+```sh
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent+left-align.tex
+```
+
 ### Hanging
 
 Option:
@@ -174,7 +181,7 @@ Option:
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+hanging-indent.tex
+-H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/hanging-indent+left-align.tex
 ```
 
 ![[Pandoc PDF commands#^ef6732]]
@@ -248,12 +255,7 @@ Option:
 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
 ```
 
-#### Left-align + indent paragraphs
-
-Option:
-```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
-```
+![[Pandoc PDF commands#First line + Left-aligned]]
 
 # Citations
 
