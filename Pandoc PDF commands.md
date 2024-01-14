@@ -4,7 +4,7 @@ nocite: |
 ---
 
 > [!NOTE] Note
-> All commands assume this Zettelkasten-export-resources repository has been cloned to `~/Zettelkasten/4\ Export\ Resources/`, the Zotero data directory is located at `~/Zotero/`, and the Zotero database is exported to `~/Zotero.bib`.
+> All commands assume this Zettelkasten-export-resources repository has been cloned to `~/Zettelkasten/Export\ Resources/`, the Zotero data directory is located at `~/Zotero/`, and the Zotero database is exported to `~/Zotero.bib`.
 
 # Defaults
 
@@ -135,7 +135,7 @@ linestretch: 1.1
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/H1-page-break.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/H1-page-break.tex
 ```
 
 ## Indentation
@@ -146,7 +146,7 @@ Indentation only needed if double spacing or if no space added between paragraph
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/indent.tex
 ```
 
 > [!WARNING]
@@ -157,14 +157,14 @@ Option:
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent+left-align.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/indent+left-align.tex
 ```
 
 ### Hanging
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/hanging-indent.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/hanging-indent.tex
 ```
 
 > [!Warning]
@@ -181,7 +181,7 @@ Option:
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/hanging-indent+left-align.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/hanging-indent+left-align.tex
 ```
 
 ![[Pandoc PDF commands#^ef6732]]
@@ -196,14 +196,14 @@ By default, LaTeX does not apply indentation rules to the first paragraph of a s
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/indent-first-paragraph.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/indent-first-paragraph.tex
 ```
 
 ## MLA style
 
 Complete command:
 ```sh
-pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zettelkasten/Zotero.bib --csl=~/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align+indent.tex
+pandoc <input>.md -o <output>.pdf --pdf-engine=xelatex -C --bibliography=~/Zotero.bib --csl=~/Zotero/styles/modern-language-association.csl -V papersize:letter -V geometry:margin=1in -V linestretch:2 -H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/disable-hyphenation.tex -H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/indent+left-align.tex
 ```
 
 ### Margins
@@ -236,7 +236,7 @@ linestretch: 2
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/disable-hyphenation.tex
 ```
 
 ### Left-align text
@@ -252,7 +252,7 @@ If the package is used, LaTeX code that changes the default skip and indentation
 
 Option:
 ```sh
--H ~/Zettelkasten/4\ Export\ Resources/LaTeX\ commands/left-align.tex
+-H ~/Zettelkasten/Export\ Resources/LaTeX\ commands/left-align.tex
 ```
 
 ![[Pandoc PDF commands#First line + Left-aligned]]
