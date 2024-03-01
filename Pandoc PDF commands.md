@@ -10,7 +10,7 @@ nocite: |
 
 Default command:
 ```sh
-pandoc <input>.md -o <output>.pdf --from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline --pdf-engine=xelatex -C --bibliography=~/Zotero.bib -V papersize:letter
+pandoc <input>.md -o <output>.pdf --from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline-blank_before_blockquote --pdf-engine=xelatex -C --bibliography=~/Zotero.bib -V papersize:letter
 ```
 
 The options can be copied to “Extra Pandoc arguments” in the settings of the [Obsidian Pandoc](https://github.com/OliverBalfour/obsidian-pandoc) plugin.
@@ -27,12 +27,12 @@ reference-section-title: Bibliography
 # Markdown extensions
 
 > [!NOTE]
-> These extensions were added in Pandoc v3.0.0
+> Most of these extensions were added in Pandoc v3.0.0
 
 
 Option to make Pandoc interpret Obsidian Flavored Markdown correctly:
 ```sh
---from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline
+--from=markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline-blank_before_blockquote
 ```
 
 Obsidian Flavored Markdown mostly consists of GitHub Flavored Markdown (GFM), which itself is an extension of CommonMark.
@@ -47,6 +47,8 @@ Generic option:
 - Wikilinks: `wikilinks_title_after_pipe`
 - Highlights: `mark`
 - Lists without preceding blank line: `lists_without_preceding_blankline`
+- Block quote without preceding blank line: `-blank_before_blockquote`
+	- Extension requires blank line before block quotes, and is enabled by default.
 
 
 
