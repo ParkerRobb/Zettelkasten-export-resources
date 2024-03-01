@@ -1,27 +1,45 @@
 ---
 nocite: |
- @emilianoBidirectionalMarkdownDocuments2022
+ @emilianoBidirectionalMarkdownDocuments2022, @LinuxLibertine2023, @maclennanLibertinus2024
 ---
 
 # Font support
 
-In Pandoc and LaTeX, documents must be exported using a font that includes the character set of any script used.
-Unfortunately LaTeX’s default fonts do not support scripts other than Latin.
+In LaTeX, documents must be compiled using a font that includes the character set of any scripts used.
+Unfortunately LaTeX’s default font families (Computer Modern and Latin Modern), though beautifully-designed, do not support scripts other than Latin.
+Fortunately the major TeX distributions include an alternative font family called Libertinus that can be invoked in several ways.
+The [Libertinus Fonts](https://github.com/alerque/libertinus) project includes serif, sans-serif, monospaced, math, serif display (for large sizes), serif initials (outlined variants of capital letters suitable for drop caps, et al.), and keyboard font families.
+All typefaces support standard OpenType Font (OTF) features.
 
-## Libertine fonts
+### Scripts
 
-Linux Libertine (serif) and Linux Biolinum (san-serif) fonts cover “the western languages” and support “Western Latin, Greek, Cyrillic (with their specific enhancements), Hebrew, IPA and many more.”[@LibertineFonts2018];
-they can be downloaded and installed from https://libertine-fonts.org/.
+The Libertinus Serif, Sans, Serif Display, and Math families support Latin, Latin Extended, IPA, diacritics, Greek and Coptic, Cyrillic, Hebrew, phonetic extensions, Greek extended, and many other symbols.
+Libertinus Mono supports only Latin, Latin Extended, diacritics, and basic symbols.
+The Libertinus Serif Initials and Keyboard typefaces are for special use, thus Initials only supports the most basic Latin characters, while Keyboard supports Latin, Latin Extended, Hebrew, and limited symbols.
 
-To export with the [Obsidian Pandoc](https://github.com/OliverBalfour/obsidian-pandoc) plugin configured with [[Pandoc PDF commands#Defaults|default commands]], specify the fonts in the document’s metadata:
-```yaml
-mainfont: Linux Libertine O
-sansfont: Linux Biolinum O
+### Weights and styles
+
+The Libertinus Serif family includes typefaces covering three weights in each of the two standard styles (regular and italic).
+Libertinus Sans includes the standard minimal set of three typefaces covering two weights and two styles (i.e., regular, bold, and italic).
+Libertinus Keyboard, Serif Display, Serif Initials, Mono, and Math are individual typefaces.
+
+### History
+
+Libertinus was originally forked from and is now the de facto continuation of the [Libertine Open Fonts](https://libertine-fonts.org/) project, a popular and attractive open-source font family whose development stalled around 2012.
+Libertinus fixed issues in Linux Libertine that had accumulated over the years, unified the typeface names, and (most importantly) added a matching mathematical typeface.
+It was the original Libertine Fonts project’s Linux Libertine (serif) and Linux Biolinum (san-serif) typefaces that initially added support for “the western languages” and “Western Latin, Greek, Cyrillic (with their specific enhancements), Hebrew, IPA and many more.”[@LibertineFonts2018]
+
+### Usage
+
+To use the Libertinus font family specify the package in the LaTeX document header or append it using Pandoc’s `-H` option:
+```latex
+\usepackage{libertinus}
 ```
 
-If needed the monospaced font can also be used:
+To specify the package in Markdown document YAML metadata instead, use one of the following Pandoc metadata variables. Note that this does not adhere to the principle of separation of content and formatting:
 ```yaml
-monofont: Linux Libertine Mono O
+header-includes: \usepackage{libertinus}
+fontfamily: libertinus
 ```
 
 # Bidirectional lines
