@@ -1,0 +1,3 @@
+[submodule "LaTeX packages/Question-Response"]
+	path = LaTeX packages/Question-Response
+	url = https://github.com/ParkerRobb/LaTeX-QuestionResponse-class.git
