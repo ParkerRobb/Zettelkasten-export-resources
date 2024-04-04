@@ -7,3 +7,4 @@ metadata:
  reference-section-title: Bibliography
 variables:
  papersize: letter
+ indent: true
