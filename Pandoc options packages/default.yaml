@@ -1,0 +1,8 @@
+from: markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline-blank_before_blockquote
+pdf-engine: xelatex
+citeproc: true
+metadata:
+ bibliography: /Users/Parker/Zotero.bib
+ csl: /Users/Parker/Zotero/styles/chicago-note-bibliography.csl
+variables:
+ papersize: letter
