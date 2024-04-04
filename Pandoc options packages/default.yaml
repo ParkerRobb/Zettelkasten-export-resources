@@ -4,5 +4,6 @@ citeproc: true
 metadata:
  bibliography: /Users/Parker/Zotero.bib
  csl: /Users/Parker/Zotero/styles/chicago-note-bibliography.csl
+ reference-section-title: Bibliography
 variables:
  papersize: letter
