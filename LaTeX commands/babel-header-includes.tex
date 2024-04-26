@@ -1,5 +1,15 @@
+% Load babel if not already loaded (copied from default.latex Pandoc template)
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+
+
+% Hebrew font setting
 \babelfont[*hebrew]{rm}[Scale=MatchUppercase]{LibertinusSerif-Regular.otf}
 \babelfont[*hebrew]{sf}[Scale=MatchUppercase]{LibertinusSans-Regular.otf}
 
-%\babelfont[polytonicgreek]{rm}{LibertinusSerif-Regular.otf}
-%\babelfont[polytonicgreek]{sf}{LibertinusSans-Regular.otf}
+% Polytonic Greek font setting
+\babelfont[*polytonicgreek]{rm}{LibertinusSerif-Regular.otf}
+\babelfont[*polytonicgreek]{sf}{LibertinusSans-Regular.otf}
