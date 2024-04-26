@@ -8,3 +8,6 @@ metadata:
 variables:
  papersize: letter
  indent: true
+ babelfonts:
+  hebrew: LibertinusSerif-Regular.otf
+#  polytonicgreek: LibertinusSerif-Regular.otf
