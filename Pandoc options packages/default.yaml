@@ -2,7 +2,7 @@ from: markdown+wikilinks_title_after_pipe+mark+lists_without_preceding_blankline
 pdf-engine: xelatex
 citeproc: true
 metadata:
- bibliography: /Users/Parker/Zotero.bib
+ bibliography: /Users/Parker/Zotero.yaml
  csl: /Users/Parker/Zotero/styles/chicago-note-bibliography.csl
  reference-section-title: Bibliography
 variables:
