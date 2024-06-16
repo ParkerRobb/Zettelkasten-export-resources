@@ -82,7 +82,21 @@ not supported by the default fonts
 tells LaTeX in which font text should be typeset
 and how it should be hyphenated.
 
-# Font support
+# Configuration
+
+## Compiler support
+
+Only the Xe(La)TeX and Lua(La)TeX typesetting engines fully support multilingual typesetting,
+especially involving non-Latin scripts;[^OverleafPolyglossia]
+therefore this document assumes LaTeX compilation and PDF output are performed 
+by one of these two engines, 
+specified using the `pdf-engine` Pandoc option.
+
+The `defaults.yaml` Pandoc options package in this repository configures Pandoc 
+to use the XeLaTeX engine
+for PDF output.
+
+## Font support
 
 In LaTeX, documents must be compiled 
 using a font that includes the character set of any scripts used.[^OverleafInternational]
@@ -90,7 +104,7 @@ LaTeX’s default font families (Computer Modern and Latin Modern) do not suppor
 
 [^12]: Bezos, 3
 
-## Document font
+### Document font
 
 The easy option is to set the entire document font to a font
 that includes glyphs for every language/script utilized in the document,
@@ -102,7 +116,7 @@ or in a separate options template loaded via the `-d`/`--defaults` Pandoc option
 but the methods presented are preferred 
 because they separate content from formatting.
 
-## Per-language/script fonts
+### Per-language/script fonts
 
 Specifying fonts for each language/script can be done
 in one of several ways:
@@ -142,7 +156,7 @@ It was the original Libertine Fonts project’s Linux Libertine (serif) and Linu
 that initially added support for “the western languages” 
 and “Western Latin, Greek, Cyrillic (with their specific enhancements), Hebrew, IPA and many more” (“Libertine Fonts”).
 
-# Language/script support
+# Language/script specification
 
 If no explicit specifications or modifications are made,
 Pandoc and LaTeX assume all document content is in English (`en`).
@@ -223,7 +237,7 @@ use Pandoc spans
 title: "Title with [טקסט בעברית]{lang=he} inline"
 ```
 
-## Zotero references
+# Zotero references
 
 Specifying the language of bibliography titles in Zotero is important
 not only for correct font selection and hyphenation,
@@ -231,6 +245,8 @@ as discussed above,
 but additionally for correct capitalization.[^ZoteroCase]
 
 [^ZoteroCase]: Zotero assumes titles are stored in sentence case.
+
+## Configuration
 
 The Better BibTeX for Zotero plugin recommends
 exporting bibliography files destined for Pandoc in CSL format,
@@ -244,6 +260,8 @@ using the aforementioned [Better BibTeX](https://retorque.re/zotero-better-bibte
 as Zotero does not natively export to CSL YAML.
 
 [^CSLYAML]: “Markdown/Pandoc”
+
+## Language specification
 
 ### Non-English titles
 
