@@ -1,0 +1,86 @@
+% Load babel if not already loaded (copied from default.latex Pandoc template)
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+
+
+% Hebrew font setting (mostly copied from libertinus package documentation)
+\babelfont[*hebrew]{rm}[
+	%RawFeature = {\libertinus@figurealign;\libertinus@figurestyle},
+	Scale = MatchUppercase,		% Modified from libertinus
+	UprightFont = *-Regular,
+	ItalicFont = *-Italic,
+	ItalicFeatures = { SmallCapsFont = *-Italic },
+	SlantedFont = *-Regular,
+	SlantedFeatures= {FakeSlant=0.2},
+	%BoldFont = *-\libertinus@boldstyle,
+	%BoldFeatures = { SmallCapsFont = *-\libertinus@boldstyle },
+	%BoldItalicFont = *-\libertinus@boldstyle Italic,
+	%BoldItalicFeatures = { SmallCapsFont = *-\libertinus@boldstyle Italic },
+	%BoldSlantedFont= *-\libertinus@boldstyle,
+	%BoldSlantedFeatures= {FakeSlant=0.2, SmallCapsFont = *-\libertinus@boldstyle },
+	SmallCapsFont = *-Regular,
+	%% SmallCapsFeatures={RawFeature=+smcp},
+	SmallCapsFeatures={Letters=SmallCaps},
+	Extension = .otf
+]{LibertinusSerif}
+\babelfont[*hebrew]{sf}[
+	Extension = .otf,
+	%RawFeature = {\libertinus@figurealign;\libertinus@figurestyle},
+	Scale = MatchUppercase,		% Modified from libertinus
+	UprightFont = *-Regular,
+	ItalicFont = *-Italic,
+	ItalicFeatures = { SmallCapsFont = *-Italic },
+	SlantedFont = *-Regular,
+	SlantedFeatures= {FakeSlant=0.2},
+	BoldFont = *-Bold,
+	BoldFeatures = { SmallCapsFont = *-Bold },
+	BoldItalicFont = *-Italic,
+	BoldItalicFeatures = {RawFeature={embolden=3},SmallCapsFont = *-Italic },
+	BoldSlantedFont= *-Bold,
+	BoldSlantedFeatures = {FakeSlant=0.2, SmallCapsFont = *-Bold },
+	SmallCapsFont = *-Regular,
+	%% SmallCapsFeatures={RawFeature=+smcp},
+	SmallCapsFeatures={Letters=SmallCaps},
+]{LibertinusSans}
+
+% Greek font setting (copied from libertinus package documentation)
+\babelfont[*greek]{rm}[
+	%RawFeature = {\libertinus@figurealign;\libertinus@figurestyle},
+	%Scale = \libertinusRM@scale ,
+	UprightFont = *-Regular,
+	ItalicFont = *-Italic,
+	ItalicFeatures = { SmallCapsFont = *-Italic },
+	SlantedFont = *-Regular,
+	SlantedFeatures= {FakeSlant=0.2},
+	%BoldFont = *-\libertinus@boldstyle,
+	%BoldFeatures = { SmallCapsFont = *-\libertinus@boldstyle },
+	%BoldItalicFont = *-\libertinus@boldstyle Italic,
+	%BoldItalicFeatures = { SmallCapsFont = *-\libertinus@boldstyle Italic },
+	%BoldSlantedFont= *-\libertinus@boldstyle,
+	%BoldSlantedFeatures= {FakeSlant=0.2, SmallCapsFont = *-\libertinus@boldstyle },
+	SmallCapsFont = *-Regular,
+	%% SmallCapsFeatures={RawFeature=+smcp},
+	SmallCapsFeatures={Letters=SmallCaps},
+	Extension = .otf
+]{LibertinusSerif}
+\babelfont[*greek]{sf}[
+	Extension = .otf,
+	%RawFeature = {\libertinus@figurealign;\libertinus@figurestyle},
+	%Scale = \libertinusSF@scale,
+	UprightFont = *-Regular,
+	ItalicFont = *-Italic,
+	ItalicFeatures = { SmallCapsFont = *-Italic },
+	SlantedFont = *-Regular,
+	SlantedFeatures= {FakeSlant=0.2},
+	BoldFont = *-Bold,
+	BoldFeatures = { SmallCapsFont = *-Bold },
+	BoldItalicFont = *-Italic,
+	BoldItalicFeatures = {RawFeature={embolden=3},SmallCapsFont = *-Italic },
+	BoldSlantedFeatures = {FakeSlant=0.2, SmallCapsFont = *-Bold },
+	SmallCapsFont = *-Regular,
+	%% SmallCapsFeatures={RawFeature=+smcp},
+	SmallCapsFeatures={Letters=SmallCaps},
+]{LibertinusSans}
