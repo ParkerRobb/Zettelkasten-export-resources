@@ -40,7 +40,7 @@ of the document’s main language
 which can [result in awkward hyphenation](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec) 
 when applied to the wrong language.
 
-[^BabelAutodetect]: MacFarlane, 43
+[^BabelAutodetect]: MacFarlane, “Pandoc User’s Guide,” 43
 
 	Babel *can* be configured 
 to automatically detect different scripts and text direction without markup,
@@ -50,7 +50,10 @@ Babel cannot detect and switch between languages
 that use the same script.
 This also requires using the Lua(La)TeX engine,
 and modifying `\babelprovides` in the Pandoc LaTeX template
-to use the `onchar=ids fonts` option (babel; Bezos, 31; Emiliano).
+to use the `onchar=ids fonts` option 
+(babel, “What’s New in Babel 3.38”; 
+Bezos, “Babel User Guide,” 31; 
+Emiliano, “Bidirectional Markdown Documents to PDF”).
 See [this GitHub issue](https://github.com/OliverBalfour/obsidian-pandoc/issues/161) for discussion.
 
 Second, 
@@ -60,7 +63,9 @@ if the language or direction is explicitly specified.[^XeTeXdir]
 [^XeTeXdir]: The Xe(La)TeX typesetting engine also requires 
 changes in text direction to be marked
 (because `bidi=default` is the only bidirectional option available to Babel
-when using XeTeX) (Bezos, 45; Emiliano); 
+when using XeTeX) 
+(Bezos, “Babel User Guide,” 45; 
+Emiliano, “Bidirectional Markdown Documents to PDF”); 
 if they are not, 
 Xe(La)TeX will render letters or words in bidirectional lines [in the incorrect order](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec).
 
@@ -102,7 +107,7 @@ In LaTeX, documents must be compiled
 using a font that includes the character set of any scripts used.[^OverleafInternational]
 LaTeX’s default font families (Computer Modern and Latin Modern) do not support scripts beyond Latin.[^12]
 
-[^12]: Bezos, 3
+[^12]: Bezos, “Babel User Guide,” 3
 
 ### Document font
 
@@ -200,7 +205,7 @@ And God said, <span lang=he>יְהִי אֹור</span>, and there was light.
 </div>
 ```
 
-[^RawHTML]: Emiliano.
+[^RawHTML]: Emiliano, “Bidirectional Markdown Documents to PDF”.
 
 	Both Markdown and Pandoc allow insertion of raw HTML (MacFarlane, 91).
 
@@ -225,7 +230,7 @@ And God said, [יְהִי אֹור]{lang=he}, and there was light.
 :::
 ```
 
-[^8]: MacFarlane, 43; Dervieux
+[^8]: MacFarlane, 43; Dervieux, “Multiple Languages with Babel”
 
 ## Metadata
 
@@ -259,7 +264,7 @@ this requires exporting to “Better CSL YAML” format
 using the aforementioned [Better BibTeX](https://retorque.re/zotero-better-bibtex/) plugin,
 as Zotero does not natively export to CSL YAML.
 
-[^CSLYAML]: “Markdown/Pandoc”
+[^CSLYAML]: Better BibTeX, “Markdown/Pandoc”
 
 ## Language specification
 
@@ -270,7 +275,7 @@ by specifying the language of the item
 in Zotero’s `language` field.
 All titles should be in sentence case.[^9]
 
-[^9]: MacFarlane, 111; Stillman
+[^9]: MacFarlane, 111; Stillman, “Preventing Title Casing for Non-English Titles”
 
 If the `language` field is blank,
 Zotero assumes the item’s language is English (`en`),
