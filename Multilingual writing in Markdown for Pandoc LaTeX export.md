@@ -7,16 +7,18 @@ author: Parker Robb
 Writing and typesetting multilingually 
 or in languages other than English 
 is a complex process
-because typesetting must be configured on several levels:
-writing direction, script, and specific language.
+because typesetting conventions and configurations differ on several levels:
+writing direction (left-to-right or right-to-left), 
+script (Latin, Greek, Cyrillic, Hebrew, Arabic, Chinese, etc.), 
+and specific language.
 As Overleaf (“Polyglossia”) puts it, 
-“typography and typesetting is so much more 
+“typography and typesetting [are] so much more 
 than just font design and selection: 
 they are very language- and culture-specific disciplines.”
 When writing in a language other than English,
 or when writing multilingual documents,
-in Markdown using Obsidian, 
-and compiling in LaTeX via Pandoc,
+in Markdown using [Obsidian](https://obsidian.md/), 
+and compiling in [LaTeX](https://www.latex-project.org/) via [Pandoc](https://pandoc.org/),
 explicitly specifying the language of each portion of text
 and the font for each language
 reduces the complexity
@@ -28,7 +30,7 @@ Specifying the language of each portion of text is important
 for several reasons.
 
 First,
-LaTeX (via the Babel package) utilizes language-specific hyphenation patterns. 
+LaTeX (via the [Babel package](https://ctan.org/pkg/babel)) utilizes language-specific hyphenation patterns. 
 If the language is explicitly specified, 
 this is done correctly consistently;[^BabelAutodetect] 
 if the language is not specified, 
@@ -36,14 +38,15 @@ LaTeX defaults to the hyphenation pattern
 of the document’s main language
 (which itself defaults to English),
 which can [result in awkward hyphenation](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec) 
-when applied to other languages.
+when applied to the wrong language.
 
 [^BabelAutodetect]: MacFarlane, 43
 
-	Babel can be configured 
+	Babel *can* be configured 
 to automatically detect different scripts and text direction without markup,
 and automatically switch the hyphenation patterns and associated font;
-however it cannot detect and switch between languages
+however, because this relies on changes in script, 
+Babel cannot detect and switch between languages
 that use the same script.
 This also requires using the Lua(La)TeX engine,
 and modifying `\babelprovides` in the Pandoc LaTeX template
@@ -56,8 +59,8 @@ if the language or direction is explicitly specified.[^XeTeXdir]
 
 [^XeTeXdir]: The Xe(La)TeX typesetting engine also requires 
 changes in text direction to be marked
-(`bidi=default` is the only bidirectional option available to Babel
-when using Xe(La)TeX) (Bezos, 45; Emiliano); 
+(because `bidi=default` is the only bidirectional option available to Babel
+when using XeTeX) (Bezos, 45; Emiliano); 
 if they are not, 
 Xe(La)TeX will render letters or words in bidirectional lines [in the incorrect order](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec).
 
@@ -72,18 +75,18 @@ do not support scripts other than Latin
 Content in a non-Latin script must be typeset
 in a font that contains the given script’s characters.[^OverleafInternational]
 
-Associating alternate fonts with languages/scripts 
-not supported by the default fonts, 
-and specifying the language of text content, 
-tells Obsidian the correct word order,
-and tells LaTeX in which font text should be typeset
+Specifying the language of text content 
+tells Obsidian, Pandoc, and LaTeX the correct word order;
+associating alternate fonts with languages/scripts 
+not supported by the default fonts
+tells LaTeX in which font text should be typeset
 and how it should be hyphenated.
 
 # Font support
 
 In LaTeX, documents must be compiled 
 using a font that includes the character set of any scripts used.[^OverleafInternational]
-LaTeX’s default font families (Computer Modern and Latin Modern) do not support scripts other than Latin.[^12]
+LaTeX’s default font families (Computer Modern and Latin Modern) do not support scripts beyond Latin.[^12]
 
 [^12]: Bezos, 3
 
@@ -91,7 +94,7 @@ LaTeX’s default font families (Computer Modern and Latin Modern) do not suppor
 
 The easy option is to set the entire document font to a font
 that includes glyphs for every language/script utilized in the document,
-using the `fontfamily` or `mainfont`, `sansfont`, and `monofont` metadata variables.[^7]
+using the `mainfont`, `sansfont`, `monofont`, `CJKmainfont`, `CJKsansfont`, and `CJKmonofont` Pandoc metadata variables.[^7]
 Specify them on the command line using the `-V` Pandoc option
 or in a separate options template loaded via the `-d`/`--defaults` Pandoc option.[^13]
 
@@ -103,27 +106,27 @@ because they separate content from formatting.
 
 Specifying fonts for each language/script can be done
 in one of several ways:
-1. Give a map of Babel language names and associated fonts in Pandoc options[^7] in a separate options template loaded via the `-d`/`--defaults` Pandoc option:[^13]
+1. Give a map of Babel language names and associated fonts via Pandoc options[^7] in a separate options template loaded via the `-d`/`--defaults` Pandoc option:[^13]
 ```yaml
 babelfonts:
  hebrew: libertinus
  polytonicgreek: libertinus
 ```
-2. Use the `\babelfont` LaTeX command to specify fonts for each language[^6] in a separate `.tex` file loaded with the `-H`/`--include-in-header` Pandoc option.[^14] This method allows control over individual font settings, and allows associating a font with entire scripts, not just individual languages.
+2. Use the `\babelfont` LaTeX command to specify fonts for each language[^6] in a separate `.tex` file loaded with the `-H`/`--include-in-header` Pandoc option.[^14] This method allows control over individual font settings, and allows associating a font with scripts, not just individual languages.
 
-[^6]: Bezos, 24; Overleaf
+[^6]: Bezos, 24; Overleaf, “Babel”
 [^7]: MacFarlane, 48
-[^14]: They can also be specified in the `header-includes` metadata variable,
+[^14]: They could also be specified in the `header-includes` metadata variable,
 but this variable is overwritten by the content of any file 
 specified using the `-H` option.
 
 The `babel-header-includes.tex` file in this repository 
 already includes serif (`rm`) and sans-serif (`sf`) font associations
 for Hebrew and Greek scripts.[^Libertinus]
-*Automatic typesetting in Greek requires Pandoc v3.2 and above
+*Automatic typesetting of Polytonic Greek in particular requires Pandoc v3.2 and above
 due to propagation of a [bugfix](https://github.com/jgm/pandoc/issues/9698) in that version.*
 
-[^Libertinus]: Hebrew and Greek are set to use the Libertinus font family 
+[^Libertinus]: Hebrew and Greek are configured to use the Libertinus font family 
 (https://github.com/alerque/libertinus; 
 https://tug.org/FontCatalogue/libertinusserif/).
 Libertinus was originally forked from, 
@@ -145,9 +148,11 @@ If no explicit specifications or modifications are made,
 Pandoc and LaTeX assume all document content is in English (`en`).
 
 Specify other languages
+via one of the methods below
 using IETF language tags
 (following the BCP 47 standard).[^1]
-See pages 20–24 of the [Babel package](https://ctan.org/pkg/babel) documentation for a full list of supported languages and locales.
+See [pages 20–24](https://mirror.math.princeton.edu/pub/CTAN/macros/latex/required/babel/base/babel.pdf#page=21) of the Babel package user guide 
+for a full list of supported languages and locales.
 
 [^1]: MacFarlane, 43
 
@@ -157,20 +162,22 @@ See pages 20–24 of the [Babel package](https://ctan.org/pkg/babel) documentati
 
 The main language of the document can be specified
 using the `lang` metadata variable.[^1]
+If `lang` is not specified,
+Pandoc and LaTeX default to English (`en`).
 
 ### Multilingual documents
 
 Pandoc automatically converts divs and spans with a `lang` property 
 into the appropriate Babel LaTeX commands.
 
-Delineate content in a language other than the main document language
+Delineate content written in a language other than the main document language
 using HTML spans or divs:[^RawHTML]
 ```markdown
 And God said, <span lang=he>יְהִי אֹור</span>, and there was light.
 
 
 <div lang=el-polyton>
-# Η γρήγορη καφέ αλεπού πήδηξε πάνω από το τεμπέλικο σκυλί
+# Γένεσις
 
 ἐν ἀρχῇ ἐποίησεν ὁ θεὸς τὸν οὐρανὸν καὶ τὴν γῆν.
 ἡ δὲ γῆ ἦν ἀόρατος καὶ ἀκατασκεύαστος καὶ σκότος ἐπάνω τῆς ἀβύσσου καὶ πνεῦμα θεοῦ ἐπεφέρετο ἐπάνω τοῦ ὕδατος.
@@ -195,7 +202,7 @@ they are not hidden in Obsidian’s Live Preview:[^Emiliano]
 And God said, [יְהִי אֹור]{lang=he}, and there was light.
 
 ::: {lang=el-polyton}
-# Η γρήγορη καφέ αλεπού πήδηξε πάνω από το τεμπέλικο σκυλί
+# Γένεσις
 
 ἐν ἀρχῇ ἐποίησεν ὁ θεὸς τὸν οὐρανὸν καὶ τὴν γῆν.
 ἡ δὲ γῆ ἦν ἀόρατος καὶ ἀκατασκεύαστος καὶ σκότος ἐπάνω τῆς ἀβύσσου καὶ πνεῦμα θεοῦ ἐπεφέρετο ἐπάνω τοῦ ὕδατος.
@@ -220,14 +227,23 @@ title: "Title with [טקסט בעברית]{lang=he} inline"
 
 Specifying the language of bibliography titles in Zotero is important
 not only for correct font selection and hyphenation,
-but also correct capitalization.[^ZoteroCase]
+as discussed above,
+but additionally for correct capitalization.[^ZoteroCase]
 
 [^ZoteroCase]: Zotero assumes titles are stored in sentence case.
 
-	Better BibTeX for Zotero (“Markdown/Pandoc”) recommends
-exporting bibliography files in CSL format,
+The Better BibTeX for Zotero plugin recommends
+exporting bibliography files destined for Pandoc in CSL format,
 not BibTeX format,
-to preserve capitalization in a lossless manner.
+to preserve capitalization in a lossless manner.[^CSLYAML]
+The multilingual workflows presented here produce consistent results
+only if bibliographies are exported specifically in CSL YAML format
+(CSL JSON is inconsistent);
+this requires exporting to “Better CSL YAML” format 
+using the aforementioned [Better BibTeX](https://retorque.re/zotero-better-bibtex/) plugin,
+as Zotero does not natively export to CSL YAML.
+
+[^CSLYAML]: “Markdown/Pandoc”
 
 ### Non-English titles
 
@@ -252,7 +268,8 @@ Title with [טקסט בעברית]{lang=he} inline
 ```
 
 Note that bibliographies created from within Zotero
-will show the span marker.
+(through the “Create bibliography …” right-click option)
+will show the span tag.
 
 # Bibliography
 
@@ -283,5 +300,7 @@ Overleaf. “International Language Support.” Accessed June 6, 2024. [https://
 Overleaf. “Multilingual Typesetting on Overleaf Using Babel and Fontspec.” Accessed September 26, 2023. [https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_babel_and_fontspec](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_babel_and_fontspec).
 
 Overleaf. “Multilingual Typesetting on Overleaf Using Polyglossia and Fontspec.” Accessed June 6, 2024. [https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec](https://www.overleaf.com/learn/latex/Multilingual_typesetting_on_Overleaf_using_polyglossia_and_fontspec).
+
+[^OverleafPolyglossia]: Overleaf, “Polyglossia”
 
 Stillman, Dan. “Preventing Title Casing for Non-English Titles.” Zotero Documentation, January 22, 2020. [https://www.zotero.org/support/kb/preventing_title_casing_for_non-english_titles](https://www.zotero.org/support/kb/preventing_title_casing_for_non-english_titles).
